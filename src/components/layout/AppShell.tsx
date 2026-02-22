@@ -47,7 +47,9 @@ export default function AppShell({ children }: AppShellProps) {
         </div>
       )}
 
-      <main className="min-w-0 flex-1 overflow-auto">{children}</main>
+      <main className="min-w-0 flex-1 overflow-auto p-2 sm:p-4">
+        <div className="max-w-screen-lg mx-auto w-full">{children}</div>
+      </main>
     </div>
   );
 }

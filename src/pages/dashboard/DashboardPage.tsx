@@ -53,7 +53,8 @@ export default function DashboardPage() {
     <div className="min-h-screen bg-bg">
       <LiveMatchBanner />
       <div className="p-4 md:p-6 lg:p-8">
-        <section className="mb-8">
+        <div className="max-w-screen-lg mx-auto w-full">
+          <section className="mb-8">
           <h2 className="mb-4 font-display text-lg font-medium text-text">Season at a glance</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
             <StatCard
@@ -164,7 +165,8 @@ export default function DashboardPage() {
               <InsightCard key={insight.id} insight={insight} />
             ))}
           </div>
-        </section>
+          </section>
+        </div>
       </div>
     </div>
   );
