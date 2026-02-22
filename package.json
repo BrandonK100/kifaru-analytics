@@ -1,16 +1,13 @@
 {
   "name": "kifaru-analytics",
   "description": "Kifaru Analytics — Performance Intelligence Platform",
-  "homepage": "https://BrandonK100.github.io/kifaru-analytics",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "deploy": "pnpm run build && git add docs && git commit -m \"chore: publish docs\" && git push",
-    "deploy:gh-pages": "pnpm run build && gh-pages -d dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,json}\"",
     "test": "vitest",
