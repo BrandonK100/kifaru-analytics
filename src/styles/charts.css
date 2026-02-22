@@ -1,0 +1,16 @@
+/**
+ * Recharts override styles for Kifaru Analytics.
+ * Ensures chart typography and colors use design tokens.
+ */
+
+.recharts-cartesian-axis-tick-value {
+  @apply fill-sub font-mono text-xs;
+}
+
+.recharts-legend-item-text {
+  @apply text-sub font-body text-sm;
+}
+
+.recharts-tooltip-label {
+  @apply font-display text-text;
+}
