@@ -2,7 +2,7 @@
  * App router. React Router v6 with protected routes and AppShell layout.
  */
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { APP_ROUTES } from './routes';
 import ProtectedRoute from './ProtectedRoute';
 import AppShell from '@/components/layout/AppShell';
@@ -29,7 +29,7 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 export function AppRouter() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path={APP_ROUTES.LOGIN} element={<LoginPage />} />
         <Route
@@ -115,6 +115,6 @@ export function AppRouter() {
         <Route path="/" element={<Navigate to={APP_ROUTES.DASHBOARD} replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
