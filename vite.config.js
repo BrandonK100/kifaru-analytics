@@ -1,0 +1,22 @@
+/** Vite configuration for Kifaru Analytics. Enables path alias and React. */
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+export default defineConfig({
+    // GitHub Pages will serve from /<repo>/ so base must reflect that path.
+    // Using the repo name ensures assets load correctly when the app is deployed.
+    base: '/kifaru-analytics/',
+    plugins: [react()],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        },
+    },
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        setupFiles: ['./src/test/setup.ts'],
+        include: ['src/**/*.test.{ts,tsx}'],
+        css: true,
+    },
+});
