@@ -4,7 +4,6 @@
 
 import { useFixtures } from '@/hooks/useMatchData';
 import { useMatchStore } from '@/store/matchStore';
-import LiveMatchBanner from '@/components/domain/LiveMatchBanner';
 import MatchCompare from '@/components/domain/MatchCompare';
 import FixtureRow from '@/components/domain/FixtureRow';
 import EmptyState from '@/components/ui/EmptyState';
@@ -22,7 +21,7 @@ export default function MatchesPage() {
 
   return (
     <div className="min-h-screen bg-bg">
-      <LiveMatchBanner />
+      {/* banner rendered by TopBar */}
       <div className="p-4 md:p-6 lg:p-8">
         {liveMatch && (
           <section className="mb-8">

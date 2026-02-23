@@ -15,6 +15,8 @@ interface MatchStore {
   liveMinute: number;
   startLiveTicker: () => void;
   stopLiveTicker: () => void;
+  /** update the live match object; resets minute if provided */
+  setLiveMatch: (match: Match | null) => void;
 }
 
 export const useMatchStore = create<MatchStore>()((set, get) => ({
@@ -39,5 +41,9 @@ export const useMatchStore = create<MatchStore>()((set, get) => ({
       clearInterval(tickerId);
       tickerId = null;
     }
+  },
+
+  setLiveMatch(match) {
+    set({ liveMatch: match, liveMinute: match?.minute ?? 0 });
   },
 }));

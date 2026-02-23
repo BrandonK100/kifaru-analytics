@@ -23,16 +23,16 @@ export default function TopBar({
   const toggleSidebar = useUiStore((s) => s.toggleSidebar);
 
   return (
-    <header className="sticky top-0 z-10 border-b border-border bg-surface">
+    <header className="border-b border-border bg-surface md:sticky md:top-0 md:z-10">
       {showLiveBanner && <LiveMatchBanner />}
       <div className="flex items-center justify-between gap-4 px-4 py-2">
         <button
           type="button"
           onClick={toggleSidebar}
-          className="md:hidden rounded p-1 text-sub hover:bg-muted hover:text-text"
+          className="md:hidden rounded p-2 w-10 h-10 flex items-center justify-center text-sub hover:bg-muted hover:text-text focus:outline-none focus:ring"
           aria-label="Toggle sidebar"
         >
-          <span className="text-lg">≡</span>
+          <span className="text-2xl leading-none">≡</span>
         </button>
         {(title || children) && (
           <>

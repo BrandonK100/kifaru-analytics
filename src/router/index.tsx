@@ -16,7 +16,6 @@ import PlayerProfilePage from '@/pages/players/PlayerProfilePage';
 import HeatmapPage from '@/pages/heatmap/HeatmapPage';
 import AnalyticsPage from '@/pages/analytics/AnalyticsPage';
 import TeamManagementPage from '@/pages/team/TeamManagementPage';
-import NotFoundPage from '@/pages/NotFoundPage';
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -32,6 +31,9 @@ export function AppRouter() {
     <HashRouter>
       <Routes>
         <Route path={APP_ROUTES.LOGIN} element={<LoginPage />} />
+        {/* index route for empty hash or root */}
+        <Route index element={<Navigate to={APP_ROUTES.DASHBOARD} replace />} />
+
         <Route
           path={APP_ROUTES.DASHBOARD}
           element={
@@ -112,8 +114,8 @@ export function AppRouter() {
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<Navigate to={APP_ROUTES.DASHBOARD} replace />} />
-        <Route path="*" element={<NotFoundPage />} />
+        {/* catch‑all sends user back to dashboard rather than rendering 404 on initial load */}
+        <Route path="*" element={<Navigate to={APP_ROUTES.DASHBOARD} replace />} />
       </Routes>
     </HashRouter>
   );

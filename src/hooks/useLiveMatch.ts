@@ -22,15 +22,16 @@ export function useLiveMatch(): UseLiveMatchResult {
     staleTime: 30000,
   });
 
-  const { liveMatch, liveMinute, startLiveTicker, stopLiveTicker } = useMatchStore();
+  const { liveMatch, liveMinute, startLiveTicker, stopLiveTicker, setLiveMatch } = useMatchStore();
 
   useEffect(() => {
     if (!liveMatch && data) {
       const fromData = data.find((m) => m.result === 'LIVE') ?? null;
-      if (fromData)
-        useMatchStore.setState({ liveMatch: fromData, liveMinute: fromData.minute ?? 0 });
+      if (fromData) {
+        setLiveMatch(fromData);
+      }
     }
-  }, [data, liveMatch]);
+  }, [data, liveMatch, setLiveMatch]);
 
   useEffect(() => {
     if (liveMatch) startLiveTicker();

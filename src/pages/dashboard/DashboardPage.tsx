@@ -6,7 +6,6 @@ import { useFixtures } from '@/hooks/useMatchData';
 import { useSeasonStats } from '@/hooks/useSeasonStats';
 import { useQuery } from '@tanstack/react-query';
 import { fetchTeams } from '@/api/teams.api';
-import LiveMatchBanner from '@/components/domain/LiveMatchBanner';
 import StatCard from '@/components/ui/StatCard';
 import BarChart from '@/components/charts/BarChart';
 import AreaChart from '@/components/charts/AreaChart';
@@ -51,7 +50,7 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-bg">
-      <LiveMatchBanner />
+      {/* banner is rendered by TopBar, duplicate removed */}
       <div className="p-4 md:p-6 lg:p-8">
         <div className="max-w-screen-lg mx-auto w-full">
           <section className="mb-8">
